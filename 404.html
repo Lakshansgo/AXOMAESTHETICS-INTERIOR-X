@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Space Not Found | AXOMAESTHETICS INTERIOR</title>
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://axomaesthetics.interior/404.html">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="apple-touch-icon" href="images/logo_3d_gold.png">
+    
+    <style>
+        .error-page-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 var(--container-padding);
+            background-color: var(--bg-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .error-num {
+            font-family: var(--font-serif);
+            font-size: 8rem;
+            color: var(--color-gold);
+            line-height: 1;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            animation: pulseLogo 3s infinite ease-in-out;
+        }
+
+        .error-page-container h1 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .error-page-container p {
+            max-width: 500px;
+            margin: 0 auto 40px;
+            font-size: 1rem;
+            color: var(--text-light-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Premium Loader Overlay -->
+    <div class="loader-overlay">
+        <div class="loader-content">
+            <div class="loader-logo">AXOMAESTHETICS</div>
+            <div class="loader-bar"><div class="loader-bar-progress"></div></div>
+        </div>
+    </div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay"></div>
+
+    <!-- Error Container -->
+    <div class="error-page-container">
+        <div class="error-num">404</div>
+        <span class="subtitle">Spatial Conflict</span>
+        <h1>Sanctuary Not Found</h1>
+        <p>The coordinates you entered do not match any of our curated design galleries or pages. Let's return you to familiar ground.</p>
+        <a href="index.html" class="btn btn-primary">Return to Sanctuary</a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

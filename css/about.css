@@ -1,0 +1,251 @@
+/* -------------------------------------
+   About Hero
+   ------------------------------------- */
+.about-hero {
+    padding: 180px 0 80px;
+    background-color: var(--bg-dark);
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.about-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.about-hero p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+/* -------------------------------------
+   Story Grid
+   ------------------------------------- */
+.story-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+.story-text h2 {
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+}
+
+.story-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.story-img-wrapper {
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.story-img-wrapper img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    transition: var(--transition-premium);
+}
+
+.story-grid:hover .story-img-wrapper img {
+    transform: scale(1.03);
+}
+
+/* -------------------------------------
+   Mission, Vision, Core Values
+   ------------------------------------- */
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+
+@media (max-width: 992px) {
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+.philosophy-card {
+    background-color: var(--bg-dark-sec);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    transition: var(--transition-fast);
+}
+
+.philosophy-card:hover {
+    border-color: var(--color-gold);
+    transform: translateY(-5px);
+}
+
+.philosophy-card-icon {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.philosophy-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.philosophy-card p {
+    font-size: 0.95rem;
+    color: var(--text-light-muted);
+}
+
+/* -------------------------------------
+   Meet the Designer
+   ------------------------------------- */
+.designer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .designer-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+.designer-img-wrapper {
+    position: relative;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.designer-img-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+    border: 1px solid var(--color-gold);
+    z-index: 1;
+}
+
+.designer-img-wrapper img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+@media (max-width: 576px) {
+    .designer-img-wrapper img {
+        height: 380px;
+    }
+}
+
+.designer-info h2 {
+    font-size: 2.8rem;
+    margin-bottom: 5px;
+}
+
+.designer-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-gold);
+    display: block;
+    margin-bottom: 30px;
+}
+
+.designer-quote {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--text-white);
+    line-height: 1.4;
+    margin-bottom: 30px;
+    border-left: 2px solid var(--color-gold);
+    padding-left: 25px;
+}
+
+.designer-info p {
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+}
+
+.designer-signature {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--color-gold);
+    margin-top: 30px;
+    letter-spacing: 2px;
+}
+
+/* -------------------------------------
+   Awards & Experience
+   ------------------------------------- */
+.timeline-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+@media (max-width: 768px) {
+    .timeline-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+.timeline-col h3 {
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.timeline-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 25px;
+}
+
+.timeline-year {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: var(--color-gold);
+    font-weight: 500;
+    min-width: 70px;
+}
+
+.timeline-details h4 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.timeline-details p {
+    font-size: 0.9rem;
+    color: var(--text-light-muted);
+}

@@ -1,0 +1,278 @@
+/* -------------------------------------
+   Contact Hero & Layout
+   ------------------------------------- */
+.contact-hero {
+    padding: 180px 0 60px;
+    background-color: var(--bg-dark);
+    text-align: center;
+}
+
+.contact-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.contact-hero p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+.contact-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+@media (max-width: 992px) {
+    .contact-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}
+
+/* -------------------------------------
+   Contact Info Details
+   ------------------------------------- */
+.contact-details-side h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+
+.contact-details-side p {
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+}
+
+.info-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.info-detail-card h3 {
+    color: var(--color-gold);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+}
+
+.info-detail-card p, .info-detail-card a {
+    font-size: 1.15rem;
+    color: var(--text-white);
+}
+
+.info-detail-card a:hover {
+    color: var(--color-gold);
+}
+
+.social-links-row {
+    display: flex;
+    gap: 20px;
+}
+
+/* Google Maps Placeholder */
+.map-container {
+    width: 100%;
+    height: 350px;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+.map-placeholder-bg {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-dark-sec);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+}
+
+.map-icon {
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    margin-bottom: 15px;
+}
+
+.map-placeholder-bg h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.map-placeholder-bg p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* -------------------------------------
+   Luxury Forms General
+   ------------------------------------- */
+.form-card {
+    background-color: var(--bg-dark-sec);
+    border: 1px solid var(--border-color);
+    padding: 50px;
+}
+
+@media (max-width: 576px) {
+    .form-card {
+        padding: 30px 20px;
+    }
+}
+
+.form-card h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.form-card p {
+    margin-bottom: 40px;
+    font-size: 0.95rem;
+}
+
+.luxury-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+@media (max-width: 576px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+.form-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 10px 0;
+    font-size: 0.95rem;
+    font-weight: 300;
+    transition: var(--transition-fast);
+    background: transparent;
+}
+
+.form-input:focus {
+    border-bottom-color: var(--color-gold);
+}
+
+.form-label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: var(--transition-fast);
+}
+
+/* Active or Focused state for labels */
+.form-group.focused .form-label, 
+.form-group.has-value .form-label {
+    top: -15px;
+    font-size: 0.75rem;
+    color: var(--color-gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* Form Selection styling */
+select.form-input {
+    cursor: pointer;
+    color: var(--text-white);
+}
+
+select.form-input option {
+    background-color: var(--bg-dark-sec);
+    color: var(--text-white);
+}
+
+/* Form Date/Time Input defaults styling */
+input[type="date"].form-input, 
+input[type="time"].form-input {
+    color: var(--text-white);
+}
+
+.error-message {
+    color: #FF5A5A;
+    font-size: 0.75rem;
+    margin-top: 5px;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: var(--transition-fast);
+}
+
+.form-group.has-error .error-message {
+    opacity: 1;
+    height: auto;
+}
+
+.form-group.has-error .form-input {
+    border-bottom-color: #FF5A5A;
+}
+
+/* -------------------------------------
+   Submission Success Panel
+   ------------------------------------- */
+.success-panel {
+    display: none;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.success-panel.active {
+    display: block;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--color-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gold);
+    font-size: 2.5rem;
+    margin: 0 auto 30px;
+    animation: scaleCheck 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.success-panel h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.success-panel p {
+    font-size: 1.05rem;
+    color: var(--text-light-muted);
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+@keyframes scaleCheck {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
