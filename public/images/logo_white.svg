@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <!-- Monogram AX -->
+  <g transform="translate(12, 10)">
+    <path d="M 18 48 L 30 12 L 42 48" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="42" y1="12" x2="30" y2="48" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="24" y1="35" x2="36" y2="35" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="75" y="40" font-family="'Cormorant Garamond', 'Playfair Display', 'Georgia', serif" font-size="20" font-weight="300" letter-spacing="0.18em" fill="#FFFFFF">AXOMAESTHETICS</text>
+  <text x="77" y="56" font-family="'Outfit', 'Inter', 'Helvetica', sans-serif" font-size="8" font-weight="400" letter-spacing="0.45em" fill="#FFFFFF">INTERIOR</text>
+</svg>
