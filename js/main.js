@@ -265,3 +265,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+/* -------------------------------------
+   Intersection Observer Animations
+   ------------------------------------- */
+document.addEventListener('DOMContentLoaded', () => {
+    // Select elements to animate
+    // For automatic enhancement, we'll target generic sections and cards
+    const sections = document.querySelectorAll('section:not(.hero), .service-card, .portfolio-item, .why-card, .featured-card');
+    
+    sections.forEach(el => {
+        // Add base classes if not already there
+        if (!el.classList.contains('animate-on-scroll')) {
+            el.classList.add('animate-on-scroll', 'animate-fade-up');
+        }
+    });
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // Trigger when 15% visible
+    };
+
+    const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                // Optional: stop observing once animated
+                // observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        scrollObserver.observe(el);
+    });
+});

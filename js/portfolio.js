@@ -206,3 +206,97 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowLeft') showPrevImage();
     });
 });
+
+/* -------------------------------------
+   Featured Projects & Lightbox JS
+   ------------------------------------- */
+document.addEventListener('DOMContentLoaded', () => {
+    // Featured Projects Modal
+    const featuredModal = document.getElementById('featured-detail-modal');
+    const viewDetailBtns = document.querySelectorAll('.view-detail-btn');
+    const featuredClose = featuredModal ? featuredModal.querySelector('.modal-close') : null;
+
+    viewDetailBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const projectId = btn.getAttribute('data-project');
+            // Here you could dynamically populate modal content based on projectId
+            document.getElementById('fd-title').textContent = 'Premium Residence ' + projectId;
+            
+            if(featuredModal) {
+                featuredModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    if(featuredClose) {
+        featuredClose.addEventListener('click', () => {
+            featuredModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+
+    // Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    if(!lightbox) return;
+    
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+    const lightboxPrev = lightbox.querySelector('.lightbox-prev');
+    const lightboxNext = lightbox.querySelector('.lightbox-next');
+    const lightboxCounter = lightbox.querySelector('.lightbox-counter');
+    
+    let lightboxImages = [];
+    let currentImageIndex = 0;
+
+    // Attach click to all images with class lightbox-trigger
+    const triggers = document.querySelectorAll('.lightbox-trigger');
+    triggers.forEach((trigger, index) => {
+        trigger.addEventListener('click', () => {
+            // Find all triggers in the same modal/container
+            const container = trigger.closest('.modal-gallery-grid');
+            if(container) {
+                const siblingTriggers = container.querySelectorAll('.lightbox-trigger');
+                lightboxImages = Array.from(siblingTriggers).map(t => t.src);
+                currentImageIndex = Array.from(siblingTriggers).indexOf(trigger);
+            } else {
+                lightboxImages = [trigger.src];
+                currentImageIndex = 0;
+            }
+            
+            updateLightbox();
+            lightbox.classList.add('active');
+        });
+    });
+
+    const updateLightbox = () => {
+        lightboxImg.src = lightboxImages[currentImageIndex];
+        lightboxCounter.textContent = (currentImageIndex + 1) + ' / ' + lightboxImages.length;
+    };
+
+    lightboxClose.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+    });
+
+    lightboxPrev.addEventListener('click', () => {
+        currentImageIndex = (currentImageIndex > 0) ? currentImageIndex - 1 : lightboxImages.length - 1;
+        updateLightbox();
+    });
+
+    lightboxNext.addEventListener('click', () => {
+        currentImageIndex = (currentImageIndex < lightboxImages.length - 1) ? currentImageIndex + 1 : 0;
+        updateLightbox();
+    });
+
+    // Keyboard support for Lightbox
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') {
+            lightbox.classList.remove('active');
+        } else if (e.key === 'ArrowLeft') {
+            lightboxPrev.click();
+        } else if (e.key === 'ArrowRight') {
+            lightboxNext.click();
+        }
+    });
+});

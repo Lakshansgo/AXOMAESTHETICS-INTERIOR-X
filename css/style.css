@@ -662,32 +662,98 @@ footer {
 }
 
 .float-btn {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    transition: var(--transition-fast);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: var(--transition-premium);
     color: white;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+/* Continuous Subtle Pulse Animation */
+@keyframes luxury-pulse {
+    0% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 0 rgba(197, 168, 128, 0.4);
+    }
+    70% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(197, 168, 128, 0);
+    }
+    100% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 0 rgba(197, 168, 128, 0);
+    }
+}
+
+@keyframes whatsapp-pulse {
+    0% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.4);
+    }
+    70% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 0 0 rgba(37, 211, 102, 0);
+    }
 }
 
 .float-btn:hover {
-    transform: scale(1.1) translateY(-3px);
+    transform: scale(1.1) translateY(-4px);
 }
 
 .float-whatsapp {
     background-color: #25D366;
+    animation: whatsapp-pulse 3s infinite;
+}
+
+.float-whatsapp:hover {
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3);
 }
 
 .float-call {
-    background-color: var(--color-gold);
+    background-color: #FAF5EB; /* Luxury Cream */
+    animation: luxury-pulse 3s infinite;
+    border: 1px solid rgba(197, 168, 128, 0.3);
+}
+
+.float-call:hover {
+    box-shadow: 0 15px 35px rgba(197, 168, 128, 0.3);
+}
+
+.float-btn svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.float-whatsapp svg {
+    fill: #FFFFFF;
+}
+
+.float-call svg {
+    fill: #C5A880; /* Gold fill inside cream circle */
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+    transition: fill 0.3s ease;
+}
+
+.float-call:hover svg {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.float-whatsapp:hover svg {
+    transform: scale(1.1);
 }
 
 .back-to-top {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     background-color: var(--bg-dark-sec);
     border: 1px solid var(--border-color);
@@ -696,10 +762,11 @@ footer {
     justify-content: center;
     color: var(--color-gold);
     cursor: pointer;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     transition: var(--transition-premium);
     opacity: 0;
     visibility: hidden;
+    outline: none;
 }
 
 .back-to-top.visible {
@@ -710,6 +777,11 @@ footer {
 .back-to-top:hover {
     background-color: var(--color-gold);
     color: var(--bg-dark);
+}
+
+.back-to-top svg {
+    width: 20px;
+    height: 20px;
 }
 
 @media (max-width: 768px) {
@@ -818,4 +890,64 @@ footer {
     font-size: 0.65rem;
     color: var(--text-muted);
     letter-spacing: 0.02em;
+}
+
+/* -------------------------------------
+   Intersection Observer Animations
+   ------------------------------------- */
+.animate-on-scroll {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: none !important; /* Resets any transform offset */
+}
+
+.animate-fade-up {
+    transform: translateY(40px);
+}
+
+.animate-fade-in {
+    /* Just relies on opacity change */
+}
+
+.animate-scale {
+    transform: scale(0.95);
+}
+
+/* -------------------------------------
+   Global Mobile & Accessibility Enhancements
+   ------------------------------------- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ensure minimum touch target size for accessibility */
+button, .btn, .btn-primary, .btn-secondary, .social-btn, .float-btn, .modal-close {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Visible focus states for keyboard navigation */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+    /* Responsive typography & spacing */
+    h1 { font-size: 2.2rem !important; }
+    h2 { font-size: 1.8rem !important; }
+    .section-header { margin-bottom: 40px !important; }
+    
+    /* Ensure cards are full width */
+    .service-card, .portfolio-item, .why-card, .featured-card {
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
 }
